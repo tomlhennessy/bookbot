@@ -5,5 +5,18 @@ def num_words(text):
 with open("books/frankenstein.txt") as f:
     file_contents = f.read()
 
-word_count = num_words(file_contents)
-print(word_count)
+
+def char_count(text):
+    countDict = {}
+    for char in text:
+        if char.isalpha():
+            char = char.lower()
+        if char not in countDict:
+            countDict[char] = 1
+        else:
+            countDict[char] += 1
+    return countDict
+
+result = char_count(file_contents)
+
+print(result)
